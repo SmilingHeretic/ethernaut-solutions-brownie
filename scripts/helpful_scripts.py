@@ -17,7 +17,7 @@ def get_new_instance(level_id, player):
     print(f'Player address {player}')
     ethernaut_address = config["networks"][network.show_active()]["ethernaut"]
     level_address = config["networks"][network.show_active()][f"level_{level_id}"]
-    print(f'Level addres {level_address}')
+    print(f'Level address {level_address}')
     ethernaut = interface.IEthernaut(ethernaut_address)
     print("Getting new instance...")
     tx = ethernaut.createLevelInstance(level_address, {"from": player})

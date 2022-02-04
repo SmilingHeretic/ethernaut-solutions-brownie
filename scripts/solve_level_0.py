@@ -15,8 +15,8 @@ from scripts.helpful_scripts import (
 def main():
     player = get_account()
     instance_address = get_new_instance(0, player)
-
     contract = interface.IHelloEthernaut(instance_address)
+    
     tx = contract.authenticate("ethernaut0", {"from": player})
     tx.wait(1)
 
