@@ -4,6 +4,7 @@ from brownie import (
     config,
     interface,
     Contract,
+    ForceAttack
 )
 from scripts.helpful_scripts import (
     get_account,
@@ -15,11 +16,11 @@ from web3 import Web3
 
 def main():
     player = get_account()
-    instance_address = get_new_instance(level_id=6, player=player)
+    instance_address = get_new_instance(level_id=7, player=player)
 
-    delegation_contract = interface.IDelegation(instance_address)
+    attack_contract = ForceAttack.deploy({"from": player, "value": Web3.toWei("0.001", "ether")})
 
-    tx = delegation_contract.pwn({"from": player})
+    tx = attack_contract.attack(instance_address, {"from": player})
     tx.wait(1)
 
     submit_instance(instance_address, player)

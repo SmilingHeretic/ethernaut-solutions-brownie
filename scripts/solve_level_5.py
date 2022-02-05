@@ -4,7 +4,6 @@ from brownie import (
     config,
     interface,
     Contract,
-    TelephoneAttack
 )
 from scripts.helpful_scripts import (
     get_account,
