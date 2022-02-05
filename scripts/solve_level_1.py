@@ -15,7 +15,7 @@ from web3 import Web3
 
 def main():
     player = get_account()
-    instance_address = get_new_instance(1, player)
+    instance_address = get_new_instance(level_id=1, player=player)
     contract = interface.IFallback(instance_address)
 
     tx = contract.contribute({"from": player, "value": Web3.toWei("0.0001", "ether")})
