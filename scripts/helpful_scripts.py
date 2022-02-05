@@ -5,6 +5,8 @@ from brownie import (
     interface,
     Contract,
 )
+from brownie import web3
+from web3 import Web3
 
 def get_account(index=None, id=None):
     if index:
@@ -31,3 +33,7 @@ def submit_instance(instance_address, player):
     tx = ethernaut.submitLevelInstance(instance_address, {"from": player})
     tx.wait(1)
     print("Level completed!" if tx.events.count('LevelCompletedLog') else "Level not completed...")
+
+def get_web3():
+    # this looks terrible...
+    return Web3(web3.provider)
