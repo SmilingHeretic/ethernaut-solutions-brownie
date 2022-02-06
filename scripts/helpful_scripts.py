@@ -24,6 +24,7 @@ def get_new_instance(level_id, player, value=0):
     tx.wait(1)
     instance_address = tx.events['LevelInstanceCreatedLog']['instance']
     print(f'Deployed new instance at addres {instance_address}')
+    print()
     return instance_address
 
 def submit_instance(instance_address, player):
