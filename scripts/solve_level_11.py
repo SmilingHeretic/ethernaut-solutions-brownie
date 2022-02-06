@@ -21,7 +21,7 @@ def main():
     elevator_contract = interface.IElevator(instance_address)
     building_contract = Building.deploy(elevator_contract, {"from": player})
 
-    tx = building_contract.attack({"from": player})
+    tx = building_contract.goToLastFloor({"from": player})
     tx.wait(1)
 
     submit_instance(instance_address, player)

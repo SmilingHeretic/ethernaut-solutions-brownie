@@ -11,7 +11,7 @@ contract Building {
         elevator = _elevator;
     }
 
-    function attack() external {
+    function goToLastFloor() external {
         elevator.goTo(12);
     }
 
