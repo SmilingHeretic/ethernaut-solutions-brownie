@@ -15,12 +15,12 @@ def get_account(index=None, id=None):
         return accounts.load(id)
     return accounts.add(config["wallets"]["from_key"])
 
-def get_new_instance(level_id, player):
+def get_new_instance(level_id, player, value=0):
     print("Getting new instance...")
     ethernaut_address = config["networks"][network.show_active()]["ethernaut"]
     level_address = config["networks"][network.show_active()][f"level_{level_id}"]
     ethernaut = interface.IEthernaut(ethernaut_address)
-    tx = ethernaut.createLevelInstance(level_address, {"from": player})
+    tx = ethernaut.createLevelInstance(level_address, {"from": player, "value": value})
     tx.wait(1)
     instance_address = tx.events['LevelInstanceCreatedLog']['instance']
     print(f'Deployed new instance at addres {instance_address}')
