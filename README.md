@@ -3,8 +3,9 @@
 Solutions to smart contract cybersecurity CTF [Ethernaut](https://ethernaut.openzeppelin.com/) written with [Brownie](https://eth-brownie.readthedocs.io/en/stable/). Thanks to Rinkeby testnet forking, it's possible to test solutions quickly on local ganache chain without submitting them on the actual testnet.
 
 ### How to run
+[Install Brownie v1.17.0](https://eth-brownie.readthedocs.io/en/stable/install.html)
 
-First add `.env` file to the project directory with the following content:
+Add `.env` file to the project directory with the following content:
 
     export WEB3_INFURA_PROJECT_ID=yourinfuraprojectkey
     export PRIVATE_KEY=yourprivatekey
