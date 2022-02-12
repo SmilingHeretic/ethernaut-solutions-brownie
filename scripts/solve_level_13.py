@@ -37,7 +37,7 @@ def main():
     for i in range(9):
         initial_gas_limit = 55_000 + i * 1000
         print(f'Initial gas limit {initial_gas_limit}')
-        tx = attack_contract.attack(gate_key, initial_gas_limit, {"from": player})
+        tx = attack_contract.attack(gate_key, initial_gas_limit, {"from": player, "gas_limit": 6721975})
         tx.wait(1)
         if tx.events['AttackAttempt'][-1]['extraGasLimit'] < 999:
             break
